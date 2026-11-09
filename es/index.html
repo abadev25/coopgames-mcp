@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servidor MCP de CoopGames: buscador de juegos cooperativos para IA</title>
+<meta name="description" content="Servidor MCP gratis y de solo lectura para que Claude, Cursor y otros asistentes de IA encuentren juegos cooperativos y multijugador por jugadores, plataformas y crossplay.">
+<link rel="alternate" hreflang="en" href="https://coopgames-app.github.io/coopgames-mcp/">
+<link rel="alternate" hreflang="es" href="https://coopgames-app.github.io/coopgames-mcp/es/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Atkinson+Hyperlegible+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="https://coopgames.app/es"><img src="../logo.svg" alt="CoopGames" width="220" height="48"></a>
+  <a class="lang" href="../" hreflang="en">English</a>
+</header>
+<main>
+  <h1>Servidor MCP de CoopGames</h1>
+  <p class="lead">Un servidor <a href="https://modelcontextprotocol.io">MCP</a> gratis y de solo lectura para que los asistentes de IA respondan «¿a qué jugamos?». Busca en el catálogo de juegos cooperativos y multijugador de <a href="https://coopgames.app/es">CoopGames</a> por jugadores, plataformas, crossplay, cooperativo en el sillón y precio.</p>
+
+  <div class="url"><code>https://coopgames.app/mcp</code><span>Streamable HTTP · sin autenticación · nombre en el registro <code>app.coopgames/coopgames</code></span></div>
+
+  <h2>Conectarlo</h2>
+  <h3>Claude Code</h3>
+  <pre><code>claude mcp add --transport http coopgames https://coopgames.app/mcp</code></pre>
+  <h3>Claude (web y escritorio)</h3>
+  <p>Configuración → Conectores → Agregar conector personalizado → pega <code>https://coopgames.app/mcp</code>.</p>
+  <h3>Cursor <small>~/.cursor/mcp.json</small></h3>
+  <pre><code>{ "mcpServers": { "coopgames": { "url": "https://coopgames.app/mcp" } } }</code></pre>
+  <h3>VS Code <small>.vscode/mcp.json</small></h3>
+  <pre><code>{ "servers": { "coopgames": { "type": "http", "url": "https://coopgames.app/mcp" } } }</code></pre>
+  <p>Cualquier otro cliente que acepte servidores MCP remotos por HTTP funciona con la misma URL.</p>
+
+  <h2>Herramientas</h2>
+  <table>
+    <tr><th><code>search_games</code></th><td>Buscar juegos para un grupo: jugadores (2–8), plataformas, online o misma pantalla, cooperativo o versus, género, crossplay, gratis, una copia para todos.</td></tr>
+    <tr><th><code>get_game</code></th><td>Todo lo multijugador de un juego: plataformas, jugadores, crossplay entre cada par de plataformas, duración de la partida.</td></tr>
+    <tr><th><code>crossplay_check</code></th><td>Sí o no rápido: ¿puede alguien en la plataforma A jugar este juego con alguien en la plataforma B?</td></tr>
+  </table>
+  <p>Plataformas: PC, PS5, PS4, Xbox, Switch y Switch 2. Cada resultado enlaza a la página del juego en CoopGames. Las respuestas vienen en inglés.</p>
+
+  <h2>Ejemplos</h2>
+  <ul>
+    <li>«Somos cuatro para jugar esta noche: dos en PC, uno en PS5 y uno en Xbox. ¿Qué tiene crossplay?»</li>
+    <li>«Juegos cooperativos gratis para 3 en Switch»</li>
+    <li>«¿Puedo jugar Helldivers 2 con un amigo que está en Xbox si yo estoy en PS5?»</li>
+    <li>«Juegos para dos en el sillón en PS5»</li>
+  </ul>
+
+  <h2>Límites</h2>
+  <ul>
+    <li>Solo lectura. Nunca escribe nada.</li>
+    <li>Hay un límite de pedidos por IP. Si recibes <code>429</code>, espera un minuto.</li>
+    <li>Si usas los datos, cita a CoopGames y enlaza la página del juego.</li>
+  </ul>
+
+  <h2>¿Prefieres buscar tú?</h2>
+  <ul class="links">
+    <li><a href="https://coopgames.app/es/juegos-cooperativos">Juegos cooperativos</a></li>
+    <li><a href="https://coopgames.app/es/juegos-crossplay">Juegos con crossplay</a></li>
+    <li><a href="https://coopgames.app/es/juegos-de-2-jugadores">Juegos de 2 jugadores</a></li>
+    <li><a href="https://coopgames.app/es/juegos-de-3-jugadores">Juegos de 3 jugadores</a></li>
+    <li><a href="https://coopgames.app/es/juegos-de-4-jugadores">Juegos de 4 jugadores</a></li>
+    <li><a href="https://coopgames.app/es/juegos-cooperativos-gratis">Juegos cooperativos gratis</a></li>
+  </ul>
+</main>
+<footer><a href="https://github.com/coopgames-app/coopgames-mcp">Código en GitHub</a> · <a href="https://coopgames.app/es">coopgames.app</a></footer>
+</body>
+</html>

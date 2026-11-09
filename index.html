@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoopGames MCP server: co-op game finder for AI assistants</title>
+<meta name="description" content="Free, read-only MCP server that lets Claude, Cursor and other AI assistants find co-op and multiplayer games by players, platforms and crossplay.">
+<link rel="alternate" hreflang="en" href="https://coopgames-app.github.io/coopgames-mcp/">
+<link rel="alternate" hreflang="es" href="https://coopgames-app.github.io/coopgames-mcp/es/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Atkinson+Hyperlegible+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a href="https://coopgames.app"><img src="logo.svg" alt="CoopGames" width="220" height="48"></a>
+  <a class="lang" href="es/" hreflang="es">Español</a>
+</header>
+<main>
+  <h1>CoopGames MCP server</h1>
+  <p class="lead">A free, read-only <a href="https://modelcontextprotocol.io">MCP</a> server that lets AI assistants answer "what can we play together?". It searches the <a href="https://coopgames.app">CoopGames</a> catalog of co-op and multiplayer games by players, platforms, crossplay, couch co-op and price.</p>
+
+  <div class="url"><code>https://coopgames.app/mcp</code><span>Streamable HTTP · no auth · registry name <code>app.coopgames/coopgames</code></span></div>
+
+  <h2>Connect it</h2>
+  <h3>Claude Code</h3>
+  <pre><code>claude mcp add --transport http coopgames https://coopgames.app/mcp</code></pre>
+  <h3>Claude (web and desktop)</h3>
+  <p>Settings → Connectors → Add custom connector → paste <code>https://coopgames.app/mcp</code>.</p>
+  <h3>Cursor <small>~/.cursor/mcp.json</small></h3>
+  <pre><code>{ "mcpServers": { "coopgames": { "url": "https://coopgames.app/mcp" } } }</code></pre>
+  <h3>VS Code <small>.vscode/mcp.json</small></h3>
+  <pre><code>{ "servers": { "coopgames": { "type": "http", "url": "https://coopgames.app/mcp" } } }</code></pre>
+  <p>Any other client that supports remote MCP servers over HTTP works with the same URL.</p>
+
+  <h2>Tools</h2>
+  <table>
+    <tr><th><code>search_games</code></th><td>Find games for a group: players (2–8), platforms, online or same screen, co-op or versus, genre, crossplay, free-to-play, one copy for everyone.</td></tr>
+    <tr><th><code>get_game</code></th><td>The full multiplayer picture of one game: platforms, player counts, crossplay between every pair of platforms, session length.</td></tr>
+    <tr><th><code>crossplay_check</code></th><td>A quick yes or no: can someone on platform A play this game with someone on platform B?</td></tr>
+  </table>
+  <p>Platforms: PC, PS5, PS4, Xbox, Switch and Switch 2. Every result links to the game's page on CoopGames.</p>
+
+  <h2>Example prompts</h2>
+  <ul>
+    <li>"Four of us want to play tonight: two on PC, one on PS5, one on Xbox. What has crossplay?"</li>
+    <li>"Free co-op games for 3 players on Switch"</li>
+    <li>"Can I play Helldivers 2 with a friend on Xbox if I'm on PS5?"</li>
+    <li>"Couch co-op games for two on PS5"</li>
+  </ul>
+
+  <h2>Limits</h2>
+  <ul>
+    <li>Read-only. It never writes anything.</li>
+    <li>Rate limited per IP. If you get <code>429</code>, wait a minute.</li>
+    <li>Please cite CoopGames and link to the game's page when you use the data.</li>
+  </ul>
+
+  <h2>Prefer to browse?</h2>
+  <ul class="links">
+    <li><a href="https://coopgames.app/games-to-play-with-friends">Games to play with friends</a></li>
+    <li><a href="https://coopgames.app/crossplay-games">Crossplay games</a></li>
+    <li><a href="https://coopgames.app/2-player-games">2 player games</a></li>
+    <li><a href="https://coopgames.app/3-player-games">3 player games</a></li>
+    <li><a href="https://coopgames.app/4-player-games">4 player games</a></li>
+    <li><a href="https://coopgames.app/free-co-op-games">Free co-op games</a></li>
+  </ul>
+</main>
+<footer><a href="https://github.com/coopgames-app/coopgames-mcp">Source on GitHub</a> · <a href="https://coopgames.app">coopgames.app</a></footer>
+</body>
+</html>
